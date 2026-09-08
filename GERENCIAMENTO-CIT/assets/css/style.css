@@ -1,0 +1,104 @@
+/* =========================================================================
+   assets/css/style.css
+   -------------------------------------------------------------------------
+   Estilos complementares ao Tailwind CSS (carregado via CDN em
+   includes/header.php e login.php). Nenhuma cor, medida ou comportamento
+   visual foi alterado em relação ao protótipo original — este arquivo
+   apenas organiza e comenta as mesmas regras.
+   ========================================================================= */
+
+/* Tipografia padrão de todo o sistema */
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Rolagem suave ao navegar pelos links âncora do menu (#inicio, #admin, etc.) */
+html {
+    scroll-behavior: smooth;
+}
+
+/* -------------------------------------------------------------------------
+   Navegação (barra superior)
+   ------------------------------------------------------------------------- */
+
+.nav-link {
+    transition: all 0.2s ease;
+}
+.nav-link:hover {
+    transform: translateY(-1px);
+}
+
+/* -------------------------------------------------------------------------
+   Cartões com efeito de destaque ao passar o mouse (benefícios, contato,
+   passos do "Como Funciona" etc.)
+   ------------------------------------------------------------------------- */
+
+.card-hover {
+    transition: all 0.3s ease;
+}
+.card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(22, 163, 74, 0.15);
+}
+
+/* -------------------------------------------------------------------------
+   Indicadores de status usados no calendário e nas listas de agendamento
+   ------------------------------------------------------------------------- */
+
+.status-available {
+    background: #16a34a; /* verde — horário livre */
+}
+.status-occupied {
+    background: #dc2626; /* vermelho — horário aprovado/ocupado */
+}
+.status-pending {
+    background: #f97316; /* laranja — solicitação aguardando aprovação */
+}
+
+/* -------------------------------------------------------------------------
+   Animações
+   ------------------------------------------------------------------------- */
+
+/* Entrada suave dos modais (agendamento, recusa) */
+.fade-in {
+    animation: fadeIn 0.3s ease;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Pulsação do indicador "Sistema Inteligente Online" no hero */
+.pulse-dot {
+    animation: pulse 2s infinite;
+}
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50%      { opacity: 0.5; }
+}
+
+/* -------------------------------------------------------------------------
+   Gradiente institucional (verde IFRO), usado em hero, botões principais,
+   seção de IA e rodapé
+   ------------------------------------------------------------------------- */
+
+.gradient-ifro {
+    background: linear-gradient(135deg, #022912 0%, #0f6d1b 100%);
+}
+.gradient-dark-ifro {
+    background: linear-gradient(135deg, #15803d 0%, #22c55e 100%);
+}
+
+/* -------------------------------------------------------------------------
+   Ajustes utilitários
+   ------------------------------------------------------------------------- */
+
+body {
+    box-sizing: border-box;
+}
+
+/* Ponto de partida (0%) das barras do gráfico "Uso por Finalidade",
+   animadas via JavaScript em updateReports() */
+.width-zero {
+    width: 0;
+}
